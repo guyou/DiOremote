@@ -26,6 +26,7 @@
 		public:
 			DiOremote(int pin);
 			void send(unsigned long code);
+			void send(const char codeToSend[]);
 		private:
 			int _pin;
 			void _send1();
