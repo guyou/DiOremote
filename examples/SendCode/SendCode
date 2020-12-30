@@ -1,0 +1,35 @@
+/*
+  SendCode.ino - Example of the library for controlling DiO devices.
+  Created by Guilhem Bonnefille, 2020.
+  Under MIT License (free to use, modify, redistribute, etc.).
+  www.charleslabs.fr
+
+  This exemple sends the code transmited as a string of 32 binary
+  digits.
+
+  Pin 2 must be connected to a 433MHz Tx module.
+*/
+
+#include <DiOremote.h>
+
+const int TX_PIN = 2;
+
+DiOremote myRemote = DiOremote(TX_PIN);
+
+void setup()
+{
+  Serial.begin(9600);
+  Serial.println("Ready to send!");
+}
+
+void loop() {
+  if (Serial.available() > 0) {
+    String code = Serial.readStringUntil('\n');
+    Serial.print("Sending ");
+    Serial.println(code);
+
+    myRemote.send(code.c_str());
+
+    Serial.println("Ready to send!");
+  }
+}
