@@ -16,10 +16,7 @@ void DiOremote::send(unsigned long codeToSend){
 	unsigned long code;
 	for (int j = 0; j < DiOremote_DEFAULT_TRY_COUNT; j++) {
 		//Start sequence
-		digitalWrite(_pin, HIGH);
-		delayMicroseconds(DiOremote_START_FRAME_1);
-		digitalWrite(_pin, LOW); 
-		delayMicroseconds(DiOremote_START_FRAME_0);
+		this->_sendStart();
 
 		//Send the code
 		code = codeToSend;
@@ -37,10 +34,7 @@ void DiOremote::send(unsigned long codeToSend){
 		}
 
 		//End sequence
-		digitalWrite(_pin, HIGH);
-		delayMicroseconds(DiOremote_END_FRAME_1);
-		digitalWrite(_pin, LOW);
-		delayMicroseconds(DiOremote_END_FRAME_0);
+		this->_sendEnd();
 
 		//digitalWrite(_pin, HIGH);
 		//delayMicroseconds(DiOremote_THIGH);
@@ -59,4 +53,18 @@ void DiOremote::_send0(){
 	delayMicroseconds(DiOremote_THIGH);
 	digitalWrite(_pin, LOW);
 	delayMicroseconds(DiOremote_TLOW_0);
+}
+
+void DiOremote::_sendStart(){
+	digitalWrite(_pin, HIGH);
+	delayMicroseconds(DiOremote_START_FRAME_1);
+	digitalWrite(_pin, LOW); 
+	delayMicroseconds(DiOremote_START_FRAME_0);
+}
+
+void DiOremote::_sendEnd(){
+	digitalWrite(_pin, HIGH);
+	delayMicroseconds(DiOremote_END_FRAME_1);
+	digitalWrite(_pin, LOW);
+	delayMicroseconds(DiOremote_END_FRAME_0);
 }

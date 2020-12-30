@@ -30,6 +30,8 @@
 			int _pin;
 			void _send1();
 			void _send0();
+			void _sendStart();
+			void _sendEnd();
 	};
 
 #endif
