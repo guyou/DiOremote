@@ -73,6 +73,9 @@ void loop() {
   }
 
   // Send the code via serial
-  if (i == DiOremote_FRAME_LENGTH)
+  if (i == DiOremote_FRAME_LENGTH) {
     Serial.println(code);
+    Serial.print("0x");Serial.println(code, HEX);
+    Serial.println(code, BIN);
+  }
 }
