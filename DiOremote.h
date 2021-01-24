@@ -13,13 +13,13 @@
 	#define DiOremote_DEFAULT_TRY_COUNT 5
 
 	//Protocol timing (in us)
-	#define DiOremote_START_FRAME_1 220
-	#define DiOremote_START_FRAME_0 2675
-	#define DiOremote_THIGH 220
-	#define DiOremote_TLOW_0 350
-	#define DiOremote_TLOW_1 1400
-	#define DiOremote_END_FRAME_1 220
-	#define DiOremote_END_FRAME_0 10600
+	#define DiOremote_START_FRAME_1 383
+	#define DiOremote_START_FRAME_0 2740
+	#define DiOremote_THIGH 383
+	#define DiOremote_TLOW_0 220
+	#define DiOremote_TLOW_1 1283
+	#define DiOremote_END_FRAME_1 383
+	#define DiOremote_END_FRAME_0 10790
 
 	class DiOremote
 	{
